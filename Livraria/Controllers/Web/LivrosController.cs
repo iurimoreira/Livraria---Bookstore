@@ -2,41 +2,48 @@
 using Livraria.Models.Domain;
 using Livraria.Models.Clientes;
 using Livraria.Models.ViewModel;
+using System.Collections.Generic;
 
 namespace Livraria.Controllers.Web
 {
     public class LivrosController : Controller
     {
+        private LivroCliente LC = new LivroCliente();
+        private AutorCliente AC = new AutorCliente();
+
         public ActionResult Index()
         {
-            LivroCliente LC = new LivroCliente();
             ViewBag.listBooks = LC.pegarTodos();
-
+            
             return View();
         }
         [HttpGet]
         public ActionResult Criar()
         {
+          
+            ViewBag.listAutores = new SelectList(AC.pegarTodos(), "AutorId", "Nome");
             return View("Criar");
         }
         [HttpPost]
-        public ActionResult Criar(LivroViewModel livro)
+        public ActionResult Criar(LivroViewModel livro, List<int> Autores)
         {
-            LivroCliente LC = new LivroCliente();
+            foreach (var item in Autores)
+            {
+                livro.Autores.Add(AC.encontrar(item));
+           }
+
             LC.Criar(livro);
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            LivroCliente LC = new LivroCliente();
             LC.Delete(id);
             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            LivroCliente LC = new LivroCliente();
             Livro livro = new Livro();
             livro = LC.encontrar(id);
             return View("Editar", livro);
@@ -44,7 +51,6 @@ namespace Livraria.Controllers.Web
         [HttpPost]
         public ActionResult Editar(Livro livro)
         {
-            LivroCliente LC = new LivroCliente();
             LC.Editar(livro);
             return RedirectToAction("Index");
         }

@@ -6,6 +6,9 @@ namespace Livraria.Models.ViewModel
 {
     public class AutorViewModel
     {
+        [Display(Name = "Id")]
+        public int AutorId { get; set; }
+
         [Required]
         [Display(Name = "Nome")]
         public string Nome { get; set; }

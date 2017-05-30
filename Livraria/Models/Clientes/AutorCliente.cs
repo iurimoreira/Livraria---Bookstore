@@ -11,7 +11,7 @@ namespace Livraria.Models.Clientes
     {
         private string Base_URL = "https://localhost:44381/api/";
 
-        public IEnumerable<Autor> pegarTodos()
+        public IEnumerable<AutorViewModel> pegarTodos()
         {
             try
             {
@@ -21,7 +21,7 @@ namespace Livraria.Models.Clientes
                 HttpResponseMessage response = client.GetAsync("Autores").Result;
 
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<IEnumerable<Autor>>().Result;
+                    return response.Content.ReadAsAsync<IEnumerable<AutorViewModel>>().Result;
                 return null;
             }
             catch
@@ -29,7 +29,7 @@ namespace Livraria.Models.Clientes
                 return null;
             }
         }
-        public Autor encontrar(int id)
+        public AutorViewModel encontrar(int id)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Livraria.Models.Clientes
                 HttpResponseMessage response = client.GetAsync("Autores/" + id).Result;
 
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<Autor>().Result;
+                    return response.Content.ReadAsAsync<AutorViewModel>().Result;
                 return null;
             }
             catch
