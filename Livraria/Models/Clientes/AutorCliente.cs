@@ -62,7 +62,7 @@ namespace Livraria.Models.Clientes
                 return false;
             }
         }
-        public bool Editar(Autor autor)
+        public bool Editar(AutorViewModel autor)
         {
             try
             {

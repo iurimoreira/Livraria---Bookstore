@@ -11,7 +11,7 @@ namespace Livraria.Controllers.Web
 
         public ActionResult Index()
         {
-            ViewBag.listBooks = AC.pegarTodos();
+            ViewBag.listAutores = AC.pegarTodos();
             return View();
         }
         [HttpGet]
@@ -39,7 +39,7 @@ namespace Livraria.Controllers.Web
             return View("Editar", autor);
         }
         [HttpPost]
-        public ActionResult Editar(Autor autor)
+        public ActionResult Editar(AutorViewModel autor)
         {
             AC.Editar(autor);
             return RedirectToAction("Index");

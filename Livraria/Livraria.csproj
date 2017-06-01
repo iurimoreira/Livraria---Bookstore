@@ -283,6 +283,8 @@
     <Content Include="Views\Livros\Index.cshtml" />
     <Content Include="Views\Livros\Criar.cshtml" />
     <Content Include="Views\Autores\Criar.cshtml" />
+    <Content Include="Views\Autores\Editar.cshtml" />
+    <Content Include="Views\Autores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
