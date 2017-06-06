@@ -18,6 +18,9 @@
 
             <ul class="menu-acoes-livro">
                 <li class="item-acao-livro">
+                    <a href="@Url.Action("Detalhes","Autores",new {id = autor.AutorId})">Detalhes</a>
+                </li>
+                <li class="item-acao-livro">
                     <a onclick="return confirm('Você deseja deletar este autor?')" href="@Url.Action("Delete","Autores", new {id= autor.AutorId})">Deletar</a>
                 </li>
                 <li class="item-acao-livro">

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace Livraria.Controllers.Web
 {
+    [Authorize]
     public class LivrosController : Controller
     {
         private LivroCliente LC = new LivroCliente();
@@ -44,7 +45,9 @@ namespace Livraria.Controllers.Web
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Livro livro = new Livro();
+            ViewBag.listAutores = new SelectList(AC.pegarTodos(), "AutorId", "Nome");
+
+            LivroViewModel livro = new LivroViewModel();
             livro = LC.encontrar(id);
             return View("Editar", livro);
         }
@@ -53,6 +56,13 @@ namespace Livraria.Controllers.Web
         {
             LC.Editar(livro);
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Detalhes(int id)
+        {
+            LivroViewModel livro = new LivroViewModel();
+            livro = LC.encontrar(id);
+            return View("Detalhes", livro);
         }
     }
 }

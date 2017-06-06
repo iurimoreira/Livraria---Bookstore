@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Livraria.Models.ViewModel
+namespace Livraria.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

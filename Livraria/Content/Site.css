@@ -36,7 +36,8 @@ textarea {
     .menu-acoes-livro .item-acao-livro {
         display: inline;
         padding: 1em 3em;
-        background-color: cornflowerblue
+        background-color: cornflowerblue;
+        margin-right: 1em;
     }
 
         .menu-acoes-livro .item-acao-livro:first-child {
@@ -67,3 +68,29 @@ textarea {
         color: white;
         text-transform: uppercase;
     }
+
+#sub-menu{
+    width:100%;
+    position:relative;
+    margin-bottom:6em;
+}
+    #sub-menu .column-sub-menu {
+        background-color: #999;
+        color: white;
+        width: 50%;
+        float: left;
+        text-align: center;
+        padding: 1.5em 0;
+    }
+        #sub-menu .column-sub-menu:last-child {
+            background-color: #666;
+        }
+
+        #sub-menu .column-sub-menu a {
+            color:white !important;
+        }
+
+        #sub-menu .column-sub-menu p {
+            margin: 0 !important;
+            text-transform:uppercase;
+        }

@@ -1,10 +1,11 @@
 ﻿using Livraria.Models.Clientes;
-using Livraria.Models.Domain;
 using Livraria.Models.ViewModel;
 using System.Web.Mvc;
 
+
 namespace Livraria.Controllers.Web
 {
+    [Authorize]
     public class AutoresController : Controller
     {
         private AutorCliente AC = new AutorCliente();
@@ -43,6 +44,13 @@ namespace Livraria.Controllers.Web
         {
             AC.Editar(autor);
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Detalhes(int id)
+        {
+            AutorViewModel autor = new AutorViewModel();
+            autor = AC.encontrar(id);
+            return View("Detalhes", autor);
         }
     }
 }

@@ -18,6 +18,9 @@
 
             <ul class="menu-acoes-livro">
                 <li class="item-acao-livro">
+                    <a href="@Url.Action("Detalhes","Livros",new {id = book.LivroId})">Detalhes</a>
+                </li>
+                <li class="item-acao-livro">
                     <a onclick="return confirm('Você deseja deletar este livro?')" href="@Url.Action("Delete","Livros", new {id= book.LivroId})">Deletar</a>
                 </li>
                 <li class="item-acao-livro">

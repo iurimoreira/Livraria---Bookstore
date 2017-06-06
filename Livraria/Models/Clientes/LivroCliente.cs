@@ -31,7 +31,7 @@ namespace Livraria.Models.Clientes
                 return null;
             }
         }
-        public Livro encontrar(int id)
+        public LivroViewModel encontrar(int id)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace Livraria.Models.Clientes
                 HttpResponseMessage response = client.GetAsync("livros/" + id).Result;
 
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<Livro>().Result;
+                    return response.Content.ReadAsAsync<LivroViewModel>().Result;
                 return null;
             }
             catch
